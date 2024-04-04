@@ -120,8 +120,8 @@ Ehhez az alábbi erőforrások szükségesek:
 5. Töltsük ki a szükséges mezőket.
    - Név: mentor-ai-search
    - Hely legyen ugyanaz, mint a tárfiókunknak
-   - Tarifacsomag: S (Szokásos)
-6. Megjegyzés: Az AI Search ezen tarifa csomagja nagyjából **havi 90 000 Forint**ba kerül. (Ezért csak akkor érdemes használni, ha valóban szükségünk van rá.)
+   - Tarifacsomag: B (Alap)
+6. Megjegyzés: Az AI Search ezen tarifa csomagja nagyjából **havi 27 000 Forint**ba kerül. (Ezért csak akkor érdemes használni, ha valóban szükségünk van rá.)
 7. A **Felülvizsgálat és létrehozás** oldalon kattintsunk a **Létrehozás** gombra kattintva hozzuk létre az erőforrást.
 
 
