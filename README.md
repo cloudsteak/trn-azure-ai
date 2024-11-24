@@ -42,13 +42,17 @@ Ahhoz, hogy ezeket a modelleket használni tudjiuk, létre kell hoznunk egy Depl
 ### Deployment létrehozása
 
 1. Az Azure OpenAI Studio-ban kattintsunk a Deployment menüpontra.
-2. Kattintsunk a **Create new deployment** gombra.
-3. Válasszuk ki a kívánt modelt.
+2. Kattintsunk a **+ Deploy model**, majd a **Deploy base model** gombra.
+3. Válasszuk ki a kívánt modelt (pl.: gpt-4), majd kattintsunk a **Confirm** gombra.
+
+![Deployment létrehozása 1](./images/deploy-model.png)
+
 4. Adjunk neki egy nevet.
 5. Állítsuk be az egyéb paramétereket.
-6. Kattintsunk a **Create** gombra.
+6. Kattintsunk a **Deploy** gombra.
 
-![Deployment létrehozása](./images/deploy-model.png)
+![Deployment létrehozása 2](./images/create-deployment.png)
+
 
 ![Minden Deployment](./images/all-deployment.png)
 
@@ -59,10 +63,23 @@ Ha van egy Deploymentünk, akkor már használhatjuk is az adott modelt. Az Azur
 Ez így használhatjuk:
 
 1. Az Azure OpenAI Studio-ban kattintsunk a Chat menüpontra.
-2. Jobb oldalon, a **Configuration** részben válasszuk ki a Deploymentet.
+2. Jobb oldalon, a **Deployment** részben válasszuk ki a Deploymentet.
 3. A képernyő közepén lévő chat ablakban írjuk be a kérdéseinket.
 
 ![Chat játszótér](./images/chat-playground.png)
+
+#### Több stílusú beszélgetés
+
+Több beszélgetési stílusban is kommunikálhatunk az AI-val. Ehhez a **Give the model instructions and context** részben adnunk kell instrukciókat a nyelvi modell számára. Ez esetben ugyanazon kérdésre különböző válaszokat kaphatunk.
+
+**Kérdés:** Hogyan kezdjem el az Azure tanulást?
+
+**Stílus lerások**
+- Te egy tapasztalt informatikai szakértő vagy. Csak a tényekre támaszkodj.
+- Te egy egyetemi hallgató vagy, aki szinte csak szlengekben válaszol.
+- Te egy pesszimista ember vagy, aki már nem hajlandó újat tanulni.
+
+Most próbáljuk ki!
 
 ## Saját adatforrás használata
 
@@ -130,26 +147,26 @@ Ehhez az alábbi erőforrások szükségesek:
 1. Lépjünk be az Azure OpenAI Studio-ba.
 2. Kattintsunk a **Chat** menüpontra.
 3. A jobb oldalon, a **Configuration** részben válasszuk ki a Deploymentet.
-4. A bal olalon, a **Setup** részben válasszuk ki a **Data** lehetőséget.
-5. Töröljük ki a **Prompt** alatt lévő összes elemet.
-6. Menjünk át az **Add your data** fülre.
-7. Kattintsunk az **Add a data source** gombra.
-8. Select a data source: **Azure Blob Storage**
-9. Blob storage account: Válasszuk ki az előbb létrehozott tárfiókunkat.
-10. Container: Válasszuk ki az `ai-forras` tárolót.
-11. Azure AI Search-nél válasszuk ki a **mentor-ai-search**-t.
-12. Enter the inxed name: dokumentum
-13. Indexer schedule: hourly
+4. A bal olalon, a **Setup** részben válasszuk ki a **Add your data** lehetőséget.
+5. Kattintsunk az **Add a data source** gombra.
+6. Select a data source: **Azure Blob Storage**
+7. Blob storage account: Válasszuk ki az előbb létrehozott tárfiókunkat.
+8. Container: Válasszuk ki az `ai-forras` tárolót.
+9. Azure AI Search-nél válasszuk ki a **mentor-ai-search**-t.
+10. Enter the index name: dokumentum
+11. Kattintsunk a **Next** gombra.
+12. Kattintsunk a **Next** gombra.
+13. A **Azure resource authentication type** résznél válasszuk az **API Key** lehetőséget.
 14. Kattintsunk a **Next** gombra.
-15. Kattintsunk a **Next** gombra.
+15. Várjuk meg amíg a beállítások ellenőrzésre kerülnek.
 16. Összegző képernyőn kattintsunk a **Save and close** gombra.
 17. Pár perc múlva az adatforrásunk elérhető lesz a Chatben.
 
 
 ### 5. Webalkalmazás létrehozása Chatbothoz Azure-ban
 
-1. Az előző pontban létrehozott Chat játszótérben kattintsunk a **Deploy to** gombra.
-2. Válasszuk a **Create a new web app** lehetőséget.
+1. Az előző pontban létrehozott Chat játszótérben kattintsunk a **Deploy** gombra.
+2. Válasszuk a **...as a web app** lehetőséget.
 3. Töltsük ki a szükséges mezőket.
    - Name: mentor-chatbot
    - Subscription: Válasszuk ki a megfelelő előfizetésünket.
@@ -157,19 +174,21 @@ Ehhez az alábbi erőforrások szükségesek:
    - Location: Válasszuk ki a megfelelő régiót.
    - Pricing plan: B1
    - Enable chat history in the web app: Igen
-4. Kattintsunk a **deploy** gombra.
+4. Kattintsunk a **Deploy** gombra.
 5. Ha elkészült, nyissuk meg.
 6. Emngedélyezzük a hozzásférést a **Permissions requested** ablakban at **Accept** gombra kattintva,
 7. Kezdjünk el beszélgetni az AI-val.
 
 ![AI Chat Webapp](./images/ai-chat-webapp.png)
 
-### 6. Példa kérdések 'prompt'
+### 7. Példa kérdések 'prompt'
 
 1. Ma már minden a mesterséges intelligenciáról (AI) szól: Mit jelent ez számunkra?
-2. Hogyanm telepítek NodeJs 20-at Linuxra?
+2. Hogyan telepítek NodeJs 20-at Linuxra?
 3. Hogyan telepítek Python3-at Windowsra?
-4. Mi a Webhook alkalmazási területei?
-5. Hogyan néz ki egy Cloud Administrator első napja?
-6. Milyen segédanyagokat találok az Azure témájú képzésekhez?
-7. Hogyan tudok kapcsolatot létesíteni az Azure Pipeline és a GitHub között?
+4. Mi az LLM és milyen LLM-eket ismerünk?
+5. Milyen eszközöket használhatunk LLM-alapú megoldások fejlesztésére?
+6. Mi a Webhook alkalmazási területei?
+7. Hogyan néz ki egy Cloud Administrator első napja?
+8. Milyen segédanyagokat találok az Azure témájú képzésekhez?
+9. Hogyan tudok kapcsolatot létesíteni az Azure Pipeline és a GitHub között?
