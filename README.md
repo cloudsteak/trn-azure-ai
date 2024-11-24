@@ -165,8 +165,8 @@ Ehhez az alábbi erőforrások szükségesek:
 
 ### 5. Webalkalmazás létrehozása Chatbothoz Azure-ban
 
-1. Az előző pontban létrehozott Chat játszótérben kattintsunk a **Deploy to** gombra.
-2. Válasszuk a **Create a new web app** lehetőséget.
+1. Az előző pontban létrehozott Chat játszótérben kattintsunk a **Deploy** gombra.
+2. Válasszuk a **...as a web app** lehetőséget.
 3. Töltsük ki a szükséges mezőket.
    - Name: mentor-chatbot
    - Subscription: Válasszuk ki a megfelelő előfizetésünket.
@@ -174,7 +174,7 @@ Ehhez az alábbi erőforrások szükségesek:
    - Location: Válasszuk ki a megfelelő régiót.
    - Pricing plan: B1
    - Enable chat history in the web app: Igen
-4. Kattintsunk a **deploy** gombra.
+4. Kattintsunk a **Deploy** gombra.
 5. Ha elkészült, nyissuk meg.
 6. Emngedélyezzük a hozzásférést a **Permissions requested** ablakban at **Accept** gombra kattintva,
 7. Kezdjünk el beszélgetni az AI-val.
@@ -186,7 +186,9 @@ Ehhez az alábbi erőforrások szükségesek:
 1. Ma már minden a mesterséges intelligenciáról (AI) szól: Mit jelent ez számunkra?
 2. Hogyanm telepítek NodeJs 20-at Linuxra?
 3. Hogyan telepítek Python3-at Windowsra?
-4. Mi a Webhook alkalmazási területei?
-5. Hogyan néz ki egy Cloud Administrator első napja?
-6. Milyen segédanyagokat találok az Azure témájú képzésekhez?
-7. Hogyan tudok kapcsolatot létesíteni az Azure Pipeline és a GitHub között?
+4. Mi az LL és milyen LLM-eket ismerünk?
+5. Milyen eszközöket használhatunk LLM-alapú megoldások fejlesztésére?
+6. Mi a Webhook alkalmazási területei?
+7. Hogyan néz ki egy Cloud Administrator első napja?
+8. Milyen segédanyagokat találok az Azure témájú képzésekhez?
+9. Hogyan tudok kapcsolatot létesíteni az Azure Pipeline és a GitHub között?
