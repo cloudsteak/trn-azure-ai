@@ -63,7 +63,7 @@ Ha van egy Deploymentünk, akkor már használhatjuk is az adott modelt. Az Azur
 Ez így használhatjuk:
 
 1. Az Azure OpenAI Studio-ban kattintsunk a Chat menüpontra.
-2. Jobb oldalon, a **Setup** részben válasszuk ki a Deploymentet.
+2. Jobb oldalon, a **Deployment** részben válasszuk ki a Deploymentet.
 3. A képernyő közepén lévő chat ablakban írjuk be a kérdéseinket.
 
 ![Chat játszótér](./images/chat-playground.png)
@@ -147,18 +147,18 @@ Ehhez az alábbi erőforrások szükségesek:
 1. Lépjünk be az Azure OpenAI Studio-ba.
 2. Kattintsunk a **Chat** menüpontra.
 3. A jobb oldalon, a **Configuration** részben válasszuk ki a Deploymentet.
-4. A bal olalon, a **Setup** részben válasszuk ki a **Data** lehetőséget.
-5. Töröljük ki a **Prompt** alatt lévő összes elemet.
-6. Menjünk át az **Add your data** fülre.
-7. Kattintsunk az **Add a data source** gombra.
-8. Select a data source: **Azure Blob Storage**
-9. Blob storage account: Válasszuk ki az előbb létrehozott tárfiókunkat.
-10. Container: Válasszuk ki az `ai-forras` tárolót.
-11. Azure AI Search-nél válasszuk ki a **mentor-ai-search**-t.
-12. Enter the inxed name: dokumentum
-13. Indexer schedule: hourly
+4. A bal olalon, a **Setup** részben válasszuk ki a **Add your data** lehetőséget.
+5. Kattintsunk az **Add a data source** gombra.
+6. Select a data source: **Azure Blob Storage**
+7. Blob storage account: Válasszuk ki az előbb létrehozott tárfiókunkat.
+8. Container: Válasszuk ki az `ai-forras` tárolót.
+9. Azure AI Search-nél válasszuk ki a **mentor-ai-search**-t.
+10. Enter the index name: dokumentum
+11. Kattintsunk a **Next** gombra.
+12. Kattintsunk a **Next** gombra.
+13. A **Azure resource authentication type** résznél válasszuk az **API Key** lehetőséget.
 14. Kattintsunk a **Next** gombra.
-15. Kattintsunk a **Next** gombra.
+15. Várjuk meg amíg a beállítások ellenőrzésre kerülnek.
 16. Összegző képernyőn kattintsunk a **Save and close** gombra.
 17. Pár perc múlva az adatforrásunk elérhető lesz a Chatben.
 
