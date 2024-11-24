@@ -53,7 +53,6 @@ Ahhoz, hogy ezeket a modelleket használni tudjiuk, létre kell hoznunk egy Depl
 
 ![Deployment létrehozása 2](./images/create-deployment.png)
 
-
 ![Minden Deployment](./images/all-deployment.png)
 
 ### Chat játszótér
@@ -75,6 +74,7 @@ Több beszélgetési stílusban is kommunikálhatunk az AI-val. Ehhez a **Give t
 **Kérdés:** Hogyan kezdjem el az Azure tanulást?
 
 **Stílus lerások**
+
 - Te egy tapasztalt informatikai szakértő vagy. Csak a tényekre támaszkodj.
 - Te egy egyetemi hallgató vagy, aki szinte csak szlengekben válaszol.
 - Te egy pesszimista ember vagy, aki már nem hajlandó újat tanulni.
@@ -94,7 +94,7 @@ Ez lehet akár md fájl is, ami a kódunk, alkalmazásunk dokumentációját tar
 
 ## Példa Azure OpenAI használatára
 
-Az alábbi példában egy egyszerű chatbotot fogunk készíteni, amely képes válaszolni a felhasználó kérdéseire. 
+Az alábbi példában egy egyszerű chatbotot fogunk készíteni, amely képes válaszolni a felhasználó kérdéseire.
 
 Ehhez az alábbi erőforrások szükségesek:
 
@@ -141,7 +141,6 @@ Ehhez az alábbi erőforrások szükségesek:
 6. Megjegyzés: Az AI Search ezen tarifa csomagja nagyjából **havi 27 000 Forint**ba kerül. (Ezért csak akkor érdemes használni, ha valóban szükségünk van rá.)
 7. A **Felülvizsgálat és létrehozás** oldalon kattintsunk a **Létrehozás** gombra kattintva hozzuk létre az erőforrást.
 
-
 ### 4. Saját adatforrás használata Chatbothoz Azure OpenAI Studio-ban
 
 1. Lépjünk be az Azure OpenAI Studio-ba.
@@ -162,7 +161,6 @@ Ehhez az alábbi erőforrások szükségesek:
 16. Összegző képernyőn kattintsunk a **Save and close** gombra.
 17. Pár perc múlva az adatforrásunk elérhető lesz a Chatben.
 
-
 ### 5. Webalkalmazás létrehozása Chatbothoz Azure-ban
 
 1. Az előző pontban létrehozott Chat játszótérben kattintsunk a **Deploy** gombra.
@@ -181,7 +179,7 @@ Ehhez az alábbi erőforrások szükségesek:
 
 ![AI Chat Webapp](./images/ai-chat-webapp.png)
 
-### 7. Példa kérdések 'prompt'
+### 6. Példa kérdések 'prompt'
 
 1. Ma már minden a mesterséges intelligenciáról (AI) szól: Mit jelent ez számunkra?
 2. Hogyan telepítek NodeJs 20-at Linuxra?
@@ -192,3 +190,42 @@ Ehhez az alábbi erőforrások szükségesek:
 7. Hogyan néz ki egy Cloud Administrator első napja?
 8. Milyen segédanyagokat találok az Azure témájú képzésekhez?
 9. Hogyan tudok kapcsolatot létesíteni az Azure Pipeline és a GitHub között?
+10. Hasonlítsd össze a következő eszközöket: Azure DevOps és GitHub?
+
+## Asszisztens létrehozása saját adatforrással
+
+Azure OpenAI Studio-ban lehetőségünk van saját adatforrások használatára. Ezt az előző pontokban már részleteztük, most pedig egy példán keresztül mutatjuk be, hogyan hozhatunk létre egy chat alkalmazást, amely képes válaszolni a felhasználó kérdéseire.
+
+A jelenleg nagyon divatos asszisztenst it is létrehozhatjuk, amely képes válaszolni a felhasználó kérdéseire. Ezt még egyszerűbben is megtehetjük, mint a Chat esetében. Ráadásul dokumentumainkat is felhasználhatjuk az AI válaszainak kialakításához. Ezeket a dokumentumokat az Azure OpenAI Studio-ban a **Data Files** menüpontban tudjuk feltölteni. Majd egy vektor adatbázist hozhatunk létre, amelyben az AI keresni fogja a válaszokat.
+
+Most nézzük ennek lépéseit:
+
+1. Lépjünk be az Azure OpenAI Studio-ba. https://oai.azure.com/
+2. Kattintsunk a **Assistant** menüpontra.
+3. A jobb oldalon, a **Configuration** részben válasszuk ki a Deploymentet. (Pl.: alap-gpt35-turbo)
+4. Majd kattintsunk a **+ Create an assistant** gombra.
+5. Adjunk neki egy nevet. (Pl.: mentor-asszisztens)
+6. Instructions részben adhatunk instrukciókat az AI-nek. (Pl.: Te egy tapasztalt informatikai szakértő vagy. Csak a tényekre támaszkodj.)
+7. Tools részben kapcsoljuk be a **File search** lehetőséget.
+8. Kattintsunk a **+ Add vector store** gombra.
+9. Adjunk neki egy nevet. (Pl.: mentor-vektor)
+10. görgessünk lejjebb és kapcsoljuk be a **Select local files** lehetőséget.
+11. Keressük meg a dokumentációinkat, és jelöljük ki azokat. Majd kezdjük meg a feltöltést.
+12. Kattintsunk a **Upload and add** gombra.
+13. Várjuk meg amíg a feltöltés befejeződik.
+14. Vektor adatbázis állapotának ellnőrzése: A bal oldalon, a **Vector stores** részben ellenőrizzük, hogy a vektor adatbázisunk állapota **Completed**-re változott-e.
+15. Navigéljunk vissza az **Assistant** menüpontra.
+16. Teszteljük az asszisztenst.
+
+**Példa kérdések 'prompt'**
+
+1. Ma már minden a mesterséges intelligenciáról (AI) szól: Mit jelent ez számunkra?
+2. Hogyan telepítek NodeJs 20-at Linuxra?
+3. Hogyan telepítek Python3-at Windowsra?
+4. Mi az LLM és milyen LLM-eket ismerünk?
+5. Milyen eszközöket használhatunk LLM-alapú megoldások fejlesztésére?
+6. Mi a Webhook alkalmazási területei?
+7. Hogyan néz ki egy Cloud Administrator első napja?
+8. Milyen segédanyagokat találok az Azure témájú képzésekhez?
+9. Hogyan tudok kapcsolatot létesíteni az Azure Pipeline és a GitHub között?
+10. Hasonlítsd össze a következő eszközöket: Azure DevOps és GitHub?
