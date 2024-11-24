@@ -42,13 +42,17 @@ Ahhoz, hogy ezeket a modelleket használni tudjiuk, létre kell hoznunk egy Depl
 ### Deployment létrehozása
 
 1. Az Azure OpenAI Studio-ban kattintsunk a Deployment menüpontra.
-2. Kattintsunk a **Create new deployment** gombra.
-3. Válasszuk ki a kívánt modelt.
+2. Kattintsunk a **+ Deploy model**, majd a **Deploy base model** gombra.
+3. Válasszuk ki a kívánt modelt (pl.: gpt-4), majd kattintsunk a **Confirm** gombra.
+
+![Deployment létrehozása 1](./images/deploy-model.png)
+
 4. Adjunk neki egy nevet.
 5. Állítsuk be az egyéb paramétereket.
-6. Kattintsunk a **Create** gombra.
+6. Kattintsunk a **Deploy** gombra.
 
-![Deployment létrehozása](./images/deploy-model.png)
+![Deployment létrehozása 2](./images/create-deployment.png)
+
 
 ![Minden Deployment](./images/all-deployment.png)
 
@@ -59,10 +63,23 @@ Ha van egy Deploymentünk, akkor már használhatjuk is az adott modelt. Az Azur
 Ez így használhatjuk:
 
 1. Az Azure OpenAI Studio-ban kattintsunk a Chat menüpontra.
-2. Jobb oldalon, a **Configuration** részben válasszuk ki a Deploymentet.
+2. Jobb oldalon, a **Setup** részben válasszuk ki a Deploymentet.
 3. A képernyő közepén lévő chat ablakban írjuk be a kérdéseinket.
 
 ![Chat játszótér](./images/chat-playground.png)
+
+#### Több stílusú beszélgetés
+
+Több beszélgetési stílusban is kommunikálhatunk az AI-val. Ehhez a **Give the model instructions and context** részben adnunk kell instrukciókat a nyelvi modell számára. Ez esetben ugyanazon kérdésre különböző válaszokat kaphatunk.
+
+**Kérdés:** Hogyan kezdjem el az Azure tanulást?
+
+**Stílus lerások**
+- Te egy Azure szakértő vagy, ennek megfelelően válaszolj a kérdésekre. Csak a tényekre támaszkodj.
+- Te egy egyetemi hallgató vagy, aki szinte csak szlengekben válaszol.
+- Te egy pesszimista ember vagy, aki már nem hajlandó újat tanulni.
+
+Most próbáljuk ki!
 
 ## Saját adatforrás használata
 
