@@ -75,7 +75,7 @@ Több beszélgetési stílusban is kommunikálhatunk az AI-val. Ehhez a **Give t
 **Kérdés:** Hogyan kezdjem el az Azure tanulást?
 
 **Stílus lerások**
-- Te egy Azure szakértő vagy, ennek megfelelően válaszolj a kérdésekre. Csak a tényekre támaszkodj.
+- Te egy tapasztalt informatikai szakértő vagy. Csak a tényekre támaszkodj.
 - Te egy egyetemi hallgató vagy, aki szinte csak szlengekben válaszol.
 - Te egy pesszimista ember vagy, aki már nem hajlandó újat tanulni.
 
