@@ -181,12 +181,12 @@ Ehhez az alábbi erőforrások szükségesek:
 
 ![AI Chat Webapp](./images/ai-chat-webapp.png)
 
-### 6. Példa kérdések 'prompt'
+### 7. Példa kérdések 'prompt'
 
 1. Ma már minden a mesterséges intelligenciáról (AI) szól: Mit jelent ez számunkra?
-2. Hogyanm telepítek NodeJs 20-at Linuxra?
+2. Hogyan telepítek NodeJs 20-at Linuxra?
 3. Hogyan telepítek Python3-at Windowsra?
-4. Mi az LL és milyen LLM-eket ismerünk?
+4. Mi az LLM és milyen LLM-eket ismerünk?
 5. Milyen eszközöket használhatunk LLM-alapú megoldások fejlesztésére?
 6. Mi a Webhook alkalmazási területei?
 7. Hogyan néz ki egy Cloud Administrator első napja?
