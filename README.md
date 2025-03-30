@@ -33,23 +33,31 @@ Ezen szolgáltatások segítségével a fejlesztők képesek lehetnek például 
 
 Azure-ban a legegyszerűbb eszközünk, ahol el tudjuk kezdeni, az [Azure OpenAI Studio](https://oai.azure.com/).
 
-Itt egy egyszerű regisztrációt követően már el is kezdhetjük az AI modellek fejlesztését. Az Azure OpenAI Studio egy teljesen ingyenes eszköz, amely lehetővé teszi a fejlesztők számára, hogy könnyedén készítsenek és teszteljenek AI modelleket.
+Az Azure OpenAI Studio egy olyan felhőalapú szolgáltatás, amely lehetővé teszi a fejlesztők számára, hogy könnyedén integrálják az AI-t a saját alkalmazásaikba. Az Azure OpenAI Studio szolgáltatások.
 
-Itt találjuk a különböző modelleket, amelyeket az Azure Cognitive Services nyújt. Az egyes modellek használatához csak egy kattintásra van szükség, és már használhatjuk is azokat.
+Ez az Azure AI Foundry része, amely egy olyan platform, amely lehetővé teszi a cégek számára, hogy könnyedén integrálják az AI-t a saját alkalmazásaikba. Itt találunk nagy nyelvi modelleket (LLM) és egyéb AI eszközöket, amelyek segítségével a fejlesztők képesek lehetnek például beszéd- és képfelismerésre, valamint gépi tanulásra alapozott alkalmazásokat készíteni.
+
+A teljes felület már magyarul is elérhető, így könnyedén navigálhatunk rajta.
+
+Itt néhány egyszerű beállítást követően már el is kezdhetjük az AI modellek fejlesztését. Az Azure OpenAI Studio egy teljesen ingyenes eszköz, amely lehetővé teszi a fejlesztők számára, hogy könnyedén készítsenek és teszteljenek AI modelleket.
+
+Megjegyzés: Az AI stúdióban hasznélt erőforrások és szolgáltatások naghyrésze fizetsetős, így figyeljün kazok áraira és használatára.
+
+Tehát az Azure OpenAI Studio-ban találjuk a különböző OpenAI modelleket, amelyeket az Azure Cognitive Services nyújt. Az egyes modellek használatához csak egy kattintásra van szükség, és már használhatjuk is azokat.
 
 Ahhoz, hogy ezeket a modelleket használni tudjiuk, létre kell hoznunk egy Deployment-et. Ezt a Deployment-et aztán egy API-n keresztül tudjuk elérni, és használni a kiválasztott modelleket.
 
-### Deployment létrehozása
+### Deployment (üzemelő példányok) létrehozása
 
-1. Az Azure OpenAI Studio-ban kattintsunk a Deployment menüpontra.
-2. Kattintsunk a **+ Deploy model**, majd a **Deploy base model** gombra.
-3. Válasszuk ki a kívánt modelt (pl.: gpt-4), majd kattintsunk a **Confirm** gombra.
+1. Az Azure OpenAI Studio-ban kattintsunk a Üzemelő példányok menüpontra.
+2. Kattintsunk a **+ Modell üzembe helyezése**, majd a **Alapmodell üzembe helyezése** gombra.
+3. Válasszuk ki a kívánt modelt (pl.: gpt-4o), majd kattintsunk a **Megerősítése** gombra.
 
 ![Deployment létrehozása 1](./images/deploy-model.png)
 
 4. Adjunk neki egy nevet.
 5. Állítsuk be az egyéb paramétereket.
-6. Kattintsunk a **Deploy** gombra.
+6. Kattintsunk a **Üzembe helyezés** gombra.
 
 ![Deployment létrehozása 2](./images/create-deployment.png)
 
@@ -62,7 +70,7 @@ Ha van egy Deploymentünk, akkor már használhatjuk is az adott modelt. Az Azur
 Ez így használhatjuk:
 
 1. Az Azure OpenAI Studio-ban kattintsunk a Chat menüpontra.
-2. Jobb oldalon, a **Deployment** részben válasszuk ki a Deploymentet.
+2. Jobb oldalon, a **Üzembe helyezés** részben válasszuk ki a a modellt.
 3. A képernyő közepén lévő chat ablakban írjuk be a kérdéseinket.
 
 ![Chat játszótér](./images/chat-playground.png)
@@ -144,42 +152,82 @@ Ehhez az alábbi erőforrások szükségesek:
 ### 4. Saját adatforrás használata Chatbothoz Azure OpenAI Studio-ban
 
 1. Lépjünk be az Azure OpenAI Studio-ba.
-2. Kattintsunk a **Chat** menüpontra.
-3. A jobb oldalon, a **Configuration** részben válasszuk ki a Deploymentet.
-4. A bal olalon, a **Setup** részben válasszuk ki a **Add your data** lehetőséget.
-5. Kattintsunk az **Add a data source** gombra.
+2. Kattintsunk a **Csevegés** menüpontra.
+3. A jobb oldalon, a **Beállítás** részben válasszuk ki a Modellt.
+4. A bal olalon, a **Beállítás** részben válasszuk ki a **Saját adatok hozzáadása** lehetőséget.
+5. Kattintsunk az **Adatforrás hozzáadása** gombra.
 6. Select a data source: **Azure Blob Storage**
 7. Blob storage account: Válasszuk ki az előbb létrehozott tárfiókunkat.
 8. Container: Válasszuk ki az `ai-forras` tárolót.
 9. Azure AI Search-nél válasszuk ki a **mentor-ai-search**-t.
 10. Enter the index name: dokumentum
-11. Kattintsunk a **Next** gombra.
-12. Kattintsunk a **Next** gombra.
-13. A **Azure resource authentication type** résznél válasszuk az **API Key** lehetőséget.
-14. Kattintsunk a **Next** gombra.
-15. Várjuk meg amíg a beállítások ellenőrzésre kerülnek.
-16. Összegző képernyőn kattintsunk a **Save and close** gombra.
-17. Pár perc múlva az adatforrásunk elérhető lesz a Chatben.
+11. Indexelő ütemezése: **Hourly**
+12. Vektor keresés hozzáadása ehhez a keresési erőforráshoz:
+
+- **Igen**
+- Modell beágyazása: **text-embedding-ada-002**
+
+13. Kattintsunk a **Következő** gombra.
+14. Keresés típusa: **Vektor**
+15. Válasszon méretet: **1024**
+16. Kattintsunk a **Következő** gombra.
+17. A **Azure-erőforrás hitelesítésének típusa** résznél válasszuk az **API Key** lehetőséget.
+18. Kattintsunk a **Következő** gombra.
+19. Várjuk meg amíg a beállítások ellenőrzésre kerülnek.
+20. Összegző képernyőn kattintsunk a **Mentés és bezárás** gombra.
+21. Pár perc múlva az adatforrásunk elérhető lesz a Chatben.
 
 ### 5. Webalkalmazás létrehozása Chatbothoz Azure-ban
 
-1. Az előző pontban létrehozott Chat játszótérben kattintsunk a **Deploy** gombra.
-2. Válasszuk a **...as a web app** lehetőséget.
+1. Az előző pontban létrehozott Chat játszótérben kattintsunk a **Üzembe helyezés** gombra.
+2. Válasszuk a **...webalkalmazásként** lehetőséget.
 3. Töltsük ki a szükséges mezőket.
    - Name: mentor-chatbot
    - Subscription: Válasszuk ki a megfelelő előfizetésünket.
    - Resource group: Válasszuk ki a megfelelő erőforrás csoportunkat.
    - Location: Válasszuk ki a megfelelő régiót.
    - Pricing plan: B1
-   - Enable chat history in the web app: Igen
-4. Kattintsunk a **Deploy** gombra.
-5. Ha elkészült, nyissuk meg.
-6. Emngedélyezzük a hozzásférést a **Permissions requested** ablakban at **Accept** gombra kattintva,
-7. Kezdjünk el beszélgetni az AI-val.
+   - Csevegési előzmények engedélyezése a webalkalmazásban: Igen (Ekkor egy Cosmos DB is létrejön a háttérben, amelyben tárolni fogjuk a csevegési előzményeket. - Ez költséges lehet, így ha nem szeretnénk, akkor válasszuk a **Nem** lehetőséget.)
+4. Kattintsunk a **Üzembe helyezés** gombra. (nagyjából 10-15 perc alatt elkészül)
+   ![Webalkalmazás üzembe helyezése](./images/webalkalmazas-deploy.png)
+
+### 6. Felhasználói azonosítás beállítása
+
+Amíg a webalkalmazásunk készül, addig beállíthatjuk a felhasználói azonosítást. Ez azért fontos, mert így csak azok férhetnek hozzá a webalkalmazásunkhoz, akiknek engedélyeztük.
+
+1. Lépjünk be az Azure Portalba.
+2. Kattintsunk a **Webalkalmazások** menüpontra.
+3. Kattintsunk a **mentor-chatbot** webalkalmazásunkra.
+4. A bal oldalon válasszuk a **Beállítások** menüpontot.
+5. Kattintsunk a **Hitelesítés** menüpontra.
+6. Kattintsunk a **Identitásszolgáltató hozzáadása** gombra.
+7. Válasszuk ki a **Microsoft** lehetőséget.
+8. Itt az alábbi beállításokat kell megadnunk:
+   - Munkaerő-konfiguráció (aktuális bérlő) Alkalmazottak és üzleti vendégek kezelése
+   - Alkalmazásregisztráció típusa: **Adja meg egy meglévő alkalmazás-regisztráció részleteit**
+   - Client ID: Adjuk meg a megfeleő alkalmazás Client ID-ját.
+   - Client Secret: Adjuk meg a megfeleő alkalmazás Client Secret-jét.
+   - Kiállító URL-címe: https://sts.windows.net/{tenant id}/v2.0
+   - Ügyfélalkalmazási követelmény: Csak magából az alkalmazásból érkező kérelmek engedélyezése
+   - Identitáskövetelmény: Bármely identitásból érkező kérelmek engedélyezése
+   - Bérlői követelmény: Csak a kibocsátó bérlőről érkező kérelmek engedélyezése
+   - Hozzáférés korlátozása: Hitelesítés megkövetelése
+   - Nem hitelesített kérelmek: HTTP 302 Found átirányítása: webhelyek esetén ajánlott
+   - Jogkivonat-tároló: Igen
+9. Kattintsunk a **Következő: Engedélyek** gombra.
+
+### 7. Alkalmazás tesztelése
+
+1. Lépjünk be az Azure Portalba.
+2. Kattintsunk a **Webalkalmazások** menüpontra.
+3. Kattintsunk a **mentor-chatbot** webalkalmazásunkra.
+4. Kattintsunk a **Webalkalmazás URL** linkre.
+5. A megnyíló ablakban kattintsunk a **Sign in with Microsoft** gombra.
+6. Kezdjünk el beszélgetni az AI-val.
 
 ![AI Chat Webapp](./images/ai-chat-webapp.png)
 
-### 6. Példa kérdések 'prompt'
+### 8. Példa kérdések 'prompt'
 
 1. Ma már minden a mesterséges intelligenciáról (AI) szól: Mit jelent ez számunkra?
 2. Hogyan telepítek NodeJs 20-at Linuxra?
